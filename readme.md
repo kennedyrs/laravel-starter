@@ -25,8 +25,8 @@ Estou usando o sistema de tradução do laravel, todos os nomes usuados dentro d
 @section('page-title-small')
 @section('page-content')
 @section('page-breadcrumb') //Ex: <li class="active">Dashboard</li>
-@section('css') //Nome que aparece na aba do navegador
-@section('js') //Nome que aparece na aba do navegador
+@section('page-css') //Nome que aparece na aba do navegador
+@section('page-js') //Nome que aparece na aba do navegador
 ```
 
 ### Pacotes adicionados

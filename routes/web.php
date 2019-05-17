@@ -17,6 +17,7 @@
 Route::get('/template', function () {
     return view('admin.dashboard');
 });
+Route::get('/dashboard', 'HomeController@dashboardAdminInfo')->name('dashboardAdmin');
 
 Route::get('/', function () {
     return view('welcome');

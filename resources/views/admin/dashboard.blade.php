@@ -1,6 +1,32 @@
 @extends('admin.template.master')
 
-@section('css')
+@section('page-css')
+<style>
+    .title {
+        font-size: 50px;
+        color: #636b6f;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 100;
+        display: block;
+        text-align: center;
+        margin: 20px 0 10px 0px;
+    }
+
+    .links {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .links>a {
+        color: #636b6f;
+        padding: 0 25px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+</style>
 @endsection
 
 @section('page-aba-title')
@@ -8,20 +34,126 @@
 @endsection
 
 @section('page-title')
-DASHBOARD
+DASHBOARD ADMIN
 @endsection
 
 @section('page-title-small')
-Dados do Sistema
+Página destinada ao ADM do Sistema
 @endsection
 
 @section('page-content')
-O Conteúdo da página vem aqui
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="title">
+            {{env('APP_NAME', 'NOME DO SISTEMA NÃO ESPECIFICADO NO ENV')}}
+        </div>
+        <div class="links">
+            <a href="/" target="_blank">Github</a>
+            <a href="/" target="_blank">SITE DA EMPRESA</a>
+            <a href="/" target="_blank">OUTRO LINK</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="box box-default collapsed-box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Environment</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+
+                        @foreach($envs as $env)
+                        <tr>
+                            <td width="120px">{{ $env['name'] }}</td>
+                            <td>{{ $env['value'] }}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="box box-default collapsed-box">
+            <div class="box-header with-border">
+                <h3 class="box-title">ENV File</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        @foreach($config_temp as $key => $val)
+                        @if($val[0])
+                        <tr>
+                            <td width="120px">{{ $val[0] }}</td>
+                            <td></td>
+                        </tr>
+                        @endif
+                        @endforeach
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="box box-default collapsed-box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Dependencies</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body dependencies">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        @foreach($dependencies as $dependency => $version)
+                        <tr>
+                            <td width="240px">{{ $dependency }}</td>
+                            <td><span class="label label-primary">{{ $version }}</span></td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @section('page-breadcrumb')
 <li class="active">Dashboard</li>
 @endsection
 
-@section('js')
+@section('page-js')
 @endsection
