@@ -7,3 +7,8 @@
 Ao login, as outras páginas logadas são invalidadas;
 Ao logar, é redirecionado para /;
 Existe um seeder para o usuário admin@admin.com / Senha admin
+
+### adicionado os pacotes
+composer require guzzlehttp/guzzle
+composer require symfony/psr-http-message-bridge
+
