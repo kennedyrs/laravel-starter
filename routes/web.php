@@ -11,6 +11,13 @@
 |
 */
 
+/*
+ * Rota para visualizar o template admin
+ */
+Route::get('/template', function () {
+    return view('admin.dashboard');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
