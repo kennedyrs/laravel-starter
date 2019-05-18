@@ -24,9 +24,7 @@
         @include('admin.template._header')
         @include('admin.template._menu')
 
-        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
                     @yield('page-title')
@@ -41,7 +39,9 @@
                 @yield('page-content')
             </section>
         </div>
-        <!-- /.content-wrapper -->
+        
+        @include('admin.user.alterar-senha')
+
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> {{env('APP_VERSION', 'APP VERSIOIN NOT DEFINED')}}
@@ -52,7 +52,6 @@
 
         <div class="control-sidebar-bg"></div>
     </div>
-    <!-- ./wrapper -->
 
     @include('admin.template._js')
 </body>

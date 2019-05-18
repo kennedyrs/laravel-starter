@@ -1,5 +1,11 @@
 # Template Para Iniciar Projetos Com Laravel
 
+###
+Comandos para rodar após clonar o repositório
+composer install
+php artisan migrate --seed
+php artisan storage:link
+
 ## Auth OK
 ```php
 $> php artisan make:auth
@@ -33,4 +39,5 @@ Estou usando o sistema de tradução do laravel, todos os nomes usuados dentro d
 ```php
 $> composer require guzzlehttp/guzzle
 $> composer require symfony/psr-http-message-bridge
+$> composer require pusher/pusher-php-server "~3.0"
 ```

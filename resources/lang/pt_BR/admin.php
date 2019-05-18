@@ -11,6 +11,20 @@ return [
     | Modifique as frases por aqui para manter o padrão
     */
 
+    'logo1' => 'K', // Uma Letra
+    'logo2' => 'RS', // Duas Letra
+	'logo3' => 'KEN', // Primeiro nome
+    'logo4' => 'NEDY', // Segundo Nome
+
     'titulo' => 'Nome do Sistema',
+    'member' => 'Member since',
+    'logout' => 'Sair',
+    'profile' => 'Perfil',
+
+    'menu' => 'MENU DE NAVEGAÇÃO',
+    'alterar-senha' => 'Senha',
+
+    'fechar' => 'Fechar',
+    'salvar' => 'Salvar',
 
 ];

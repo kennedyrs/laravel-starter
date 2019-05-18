@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Models\ACL\Role;
+use App\Models\ACL\Permission;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -36,4 +38,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        $this->belongsToMany(Role::class);
+    }
+
+    public function hasPermision(Permission $permission){
+        $this->hasAnyRoles($permission->roles);
+    }
+
+    public function hasAnyRoles($roles){
+        if(is_array($roles) || is_object($roles) ) {
+            return !! $roles->intersect($this->roles)->count();
+        }
+            return $this->roles->contains('nome', $roles);
+    }
 }

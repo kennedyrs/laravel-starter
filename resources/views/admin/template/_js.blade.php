@@ -26,5 +26,11 @@
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="dist/js/demo.js"></script>
 -->
+<script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script type="text/javascript">
+    //TODO Configurar cookie para controlar o menu
+</script>
 
 @yield('page-js')

@@ -10,19 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-/*
- * Rota para visualizar o template admin
- */
-Route::get('/template', function () {
-    return view('admin.dashboard');
-});
-Route::get('/dashboard', 'HomeController@dashboardAdminInfo')->name('dashboardAdmin');
-
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
+});
+
+Route::get('/dashboard', 'HomeController@dashboardAdminInfo')
+	->middleware('auth')
+	->name('dashboard');
+
+Route::group(['middleware'=>'auth', 'prefix'=>'administrator'], function (){
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
