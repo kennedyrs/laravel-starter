@@ -50,7 +50,7 @@ class HomeController extends Controller
         }
 
 
-
+        Session()->flash('success', 'Dashboard carregou');
         return view('admin.dashboard', compact('envs', 'dependencies', 'config_temp'));
     }
 }

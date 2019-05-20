@@ -1,27 +1,31 @@
 @extends('admin.template.master')
 
-@section('css')
+@section('page-css')
 @endsection
 
 @section('page-aba-title')
 - Dashboard
 @endsection
 
-@section('page-title')
-DASHBOARD
-@endsection
+@section('page-breadcrumb')
 
-@section('page-title-small')
-Dados do Sistema
 @endsection
 
 @section('page-content')
-O Conteúdo da página vem aqui
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">TÍTULO</h3>
+                </div>
+                <div class="box-body">
+                    CONTEÚDO DA PÁGINA AQUI
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
-@section('page-breadcrumb')
-<li class="active">Dashboard</li>
-@endsection
 
-@section('js')
+@section('page-js')
 @endsection

@@ -16,7 +16,7 @@ return [
 	'logo3' => 'KEN', // Primeiro nome
     'logo4' => 'NEDY', // Segundo Nome
 
-    'titulo' => 'Nome do Sistema',
+    'titulo' => env('APP_NAME', 'APP_NAME NOT DEFINED'),
     'member' => 'Member since',
     'logout' => 'Sair',
     'profile' => 'Perfil',

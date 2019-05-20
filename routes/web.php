@@ -10,15 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
 
-Route::get('/dashboard', 'HomeController@dashboardAdminInfo')
-	->middleware('auth')
-	->name('dashboard');
+Route::get('/', function(){return redirect()->route('admin.dashboard');});
 
-Route::group(['middleware'=>'auth', 'prefix'=>'administrator'], function (){
+Route::group(['middleware'=>'auth', 'prefix'=>'administrator', 'as'=>'admin.'], function (){
+
+    Route::get('/dashboard', 'HomeController@dashboardAdminInfo')->name('dashboard');
+
+    #
+    # Rotas do menu de usúarios
+    #
+    Route::get('/users', 'User\UserController@index')->name('user.index');
 });
 
 Auth::routes();

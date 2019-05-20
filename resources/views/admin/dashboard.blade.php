@@ -47,7 +47,7 @@
             {{env('APP_NAME', 'NOME DO SISTEMA NÃO ESPECIFICADO NO ENV')}}
         </div>
         <div class="links">
-            <a href="/" target="_blank">Github</a>
+            <a href="/" target="_blank">{{Route('admin.dashboard')}}</a>
             <a href="/" target="_blank">SITE DA EMPRESA</a>
             <a href="/" target="_blank">OUTRO LINK</a>
         </div>
@@ -149,4 +149,5 @@
 @endsection
 
 @section('page-js')
+
 @endsection

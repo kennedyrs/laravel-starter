@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ __('admin.titulo') }}@yield('page-aba-title')</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @include('admin.template._css')
 
@@ -26,15 +29,12 @@
 
         <div class="content-wrapper">
             <section class="content-header">
-                <h1>
-                    @yield('page-title')
-                    <small>@yield('page-title-small')</small>
-                </h1>
                 <ol class="breadcrumb">
-                    <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li><a href="/"><i class="fa fa-dashboard"></i> Home > </a></li>
                     @yield('page-breadcrumb')
                 </ol>
             </section>
+            <br class="hidden-xs hidden-sm">
             <section class="content">
                 @yield('page-content')
             </section>
@@ -44,7 +44,7 @@
 
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Version</b> {{env('APP_VERSION', 'APP VERSIOIN NOT DEFINED')}}
+                <b>Version</b> {{env('APP_VERSION', 'APP VERSION NOT DEFINED')}}
             </div>
             <strong>Copyright &copy; {{\Carbon\Carbon::now()->format('Y')}} <a href="https://kennedy.io" target="_blank">Kennedy Studio</a>.</strong> All rights
             reserved.

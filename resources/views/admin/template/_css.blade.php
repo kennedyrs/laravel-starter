@@ -15,5 +15,5 @@
 <link rel="stylesheet" href="{{ asset('css/Ionicons/css/ionicons.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/dist/AdminLTE.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/dist/skin-green-light.min.css') }}">
-
+<link rel="stylesheet" href="{{ asset('css/iziToast/iziToast.min.css') }}">
 @yield('page-css')

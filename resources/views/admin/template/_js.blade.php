@@ -1,6 +1,7 @@
 <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/dist/adminlte.min.js') }}"></script>
+<script src="{{ asset('js/iziToast/iziToast.min.js') }}"></script>
 
 <!--
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -26,11 +27,27 @@
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="dist/js/demo.js"></script>
 -->
-<script src="sweetalert2.all.min.js"></script>
-<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
-<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 <script type="text/javascript">
     //TODO Configurar cookie para controlar o menu
+
+    @if(session('success'))
+        iziToast.show({
+            backgroundColor: '#0b804a',
+            titleColor: '#fff',
+            icon: 'ico-success revealIn',
+            iconColor: 'white',
+            overlay: false,
+            position: 'topRight',
+            message: '{{ Session::get('success') }}',
+        });
+    @elseif(session('warning'))
+        iziToast.warning({
+            backgroundColor: '#f00',
+            overlay: false,
+            position: 'topRight',
+            message: '{{ Session::get('warning') }}',
+        });
+    @endif
 </script>
 
 @yield('page-js')
