@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -43,5 +44,8 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         Auth::logoutOtherDevices($request->password);
+
+        return redirect()->route('admin.dashboard');
     }
+
 }

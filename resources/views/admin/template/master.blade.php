@@ -30,7 +30,7 @@
         <div class="content-wrapper">
             <section class="content-header">
                 <ol class="breadcrumb">
-                    <li><a href="/"><i class="fa fa-dashboard"></i> Home > </a></li>
+                    <li><a href="/"><i class="fa fa-dashboard"></i> Home </a></li>
                     @yield('page-breadcrumb')
                 </ol>
             </section>

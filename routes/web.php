@@ -11,16 +11,25 @@
 |
 */
 
-Route::get('/', function(){return redirect()->route('admin.dashboard');});
+Auth::routes();
+
+Route::get('/', function(){
+    return redirect()->route('admin.home');
+});
+
+Route::get('register', function(){
+    return redirect()->route('admin.home');
+});
 
 Route::group(['middleware'=>'auth', 'prefix'=>'administrator', 'as'=>'admin.'], function (){
 
+    Route::get('/', function(){
+        return "Ok OK Silvio.";
+    })->name('home');
+
     Route::get('/dashboard', 'HomeController@dashboardAdminInfo')->name('dashboard');
 
-    #
-    # Rotas do menu de usúarios
-    #
-    Route::get('/users', 'User\UserController@index')->name('user.index');
-});
 
-Auth::routes();
+    Route::get('/users', 'User\UserController@index')->name('user.index');
+    Route::get('/users/{id}/show', 'User\UserController@show')->where('id', '[0-9]+')->name('user.show');
+});

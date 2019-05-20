@@ -14,11 +14,14 @@
                     <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                 </ul>
             </li>
+
+            @can('edit product2')
             <li>
                 <a href="{{Route('admin.user.index')}}">
                     <i class="fa fa-th"></i> <span>Usuários</span>
                 </a>
             </li>
+            @endcan
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>

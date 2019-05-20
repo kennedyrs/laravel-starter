@@ -21,6 +21,32 @@ class UserController extends Controller
 	    return view('admin.user.index', compact('users'));
     }
 
+
+    public function show($id){
+        try {
+            $user = User::findOrFail($id);
+        }catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e){
+            Return redirect()->route('admin.user.index')->with('warning', 'Usuário não encontrado.');
+        }
+	    return view('admin.user.show', compact('user'));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function update_my_photo(Request $request){
 
         $request->validate([

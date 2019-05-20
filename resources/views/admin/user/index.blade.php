@@ -2,6 +2,31 @@
 
 @section('page-css')
 <link rel="stylesheet" href="{{ asset('css/dataTables/dataTables.bootstrap.min.css') }}">
+<style type="text/css">
+ a.btn.btn-app.btn-actions {
+    padding: 4px 4px !important;
+    height: unset !important;
+    min-width: 30px !important;
+}
+td.actions {
+    text-align: center !important;
+}
+a.btn.btn-app.btn-actions.btn-actions-view {
+    color: #0b7abb;
+    border: 1px solid #0b7abb;
+    background-color: rgb(199, 234, 255);
+}
+a.btn.btn-app.btn-actions.btn-actions-edit {
+    color: #00a65a;
+    border: 1px solid #00a65a;
+    background-color: rgb(198, 255, 229);
+}
+a.btn.btn-app.btn-actions.btn-actions-delete {
+    color: #dd4b39;
+    border: 1px solid #dd4b39;
+    background-color: rgb(255, 220, 215);
+}
+</style>
 @endsection
 
 @section('page-aba-title')
@@ -29,6 +54,7 @@
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Permissões</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,12 +64,20 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>
-                            <small class="label bg-green">ADMIN</small>
-                            <small class="label bg-green">ADMIN</small>
-                            <small class="label bg-green">ADMIN</small>
-                            <small class="label bg-green">ADMIN</small>
-                            <small class="label bg-green">ADMIN</small>
-                            <small class="label bg-green">VENDEDOR</small>
+                            @foreach($user->getRoleNames() as $role)
+                            <small class="label bg-green">{{$role}}</small>
+                            @endforeach
+                        </td>
+                        <td class="actions">
+                            <a href="{{Route('admin.user.show', ['id' => $user->id])}}" class="btn btn-app btn-actions btn-actions-view" title="Visualizar">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-app btn-actions btn-actions-edit" title="Editar">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a class="btn btn-app btn-actions btn-actions-delete" title="Apagar">
+                                <i class="fa fa-trash"></i>
+                            </a>
                         </td>
                     </tr>
                     @endforeach

@@ -27,11 +27,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        $permissions = Permission::with('roles')->get();
-        foreach($permissions as $permission){
-            $gate->define($permission->name, function(User $user) use ($permission){
-                return $user->hasPermision($permission);
-            });
-        }
+		// Implicitly grant "Super Admin" role all permissions
+        // This works in the app by using gate-related functions like auth()->user->can() and @can()
+        Gate::before(function ($user, $ability) {
+            return $user->hasRole('Super Admin') ? true : null;
+        });
+
     }
 }

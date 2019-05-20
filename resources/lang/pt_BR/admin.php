@@ -27,4 +27,21 @@ return [
     'fechar' => 'Fechar',
     'salvar' => 'Salvar',
 
+    'login' => 'Login',
+    'lembrar' => 'Lembrar',
+    'email' => 'Email',
+    'senha' => 'Senha',
+    'EsqueceuASenha' => 'Esqueceu sua senha?',
+
+    'verifiqueSeuEmail' => 'Verifique seu email',
+    'linkResetarSenhaEnviada'=> 'Um link com instruções para resetar sua senha foi enviado para o seu email.',
+    'antesDePedirOutroLink' => 'Antes de prosseguir, veja seu email, olhe também a caixa de spam.',
+    'seNaoRecebeuEmail' => 'Se você não recebeu o email',
+    'cliquePedirOutro' => 'Clique aqui para enviar outro email.',
+
+    'enviarLinkResetarSenha' => 'Enviar um link para redefinir sua senha',
+    'resetar-senha' => 'Redefinir Senha',
+
+
+
 ];

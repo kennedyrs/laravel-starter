@@ -14,6 +14,7 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "pusher/pusher-php-server": "~3.0",
+        "spatie/laravel-permission": "^2.37",
         "symfony/psr-http-message-bridge": "^1.2"
     },
     "require-dev": {
@@ -42,6 +43,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Helpers/CustomHelper.php"
         ]
     },
     "autoload-dev": {
