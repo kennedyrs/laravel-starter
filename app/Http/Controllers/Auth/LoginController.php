@@ -45,7 +45,7 @@ class LoginController extends Controller
     {
         Auth::logoutOtherDevices($request->password);
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.home');
     }
 
 }

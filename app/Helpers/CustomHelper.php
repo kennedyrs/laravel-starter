@@ -3,8 +3,30 @@
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\RequestException;
 
-if(!function_exists('convertePtBrParaMysql')){
-    function convertePtBrParaMysql($data) {
+/**
+ * TODO FUNÇÃO QUE ESCONDE O EMAIL DA PESSOA
+ *
+ * $email = 'kennedywork@outlook.com.br';
+$nome = '';
+$dominio = '';
+$count = 0;
+
+$strings = explode('@', $email, 2);
+foreach ($strings as $string){
+if($count <= 0 )
+$nome = $string;
+else
+$dominio = $string;
+
+$count = $count+1;
+}
+
+echo substr($nome, 0, strlen($nome)/2)."...@";
+echo "...".substr($dominio, floor((strlen($dominio)/2)*-1));
+ */
+
+if(!function_exists('converteDataPtBrParaMysql')){
+    function converteDataPtBrParaMysql($data) {
         if($data == '0000-00-00'){
             return ;
         }
@@ -47,7 +69,7 @@ if(!function_exists('converteCreatedUpdated')){
     }
 }
 
-if(!function_exists('FormatarNome'))
+if(!function_exists('ajustarNome'))
 {
     /**
      * Essa Funcção recebe o nome completo de uma pessoa,
@@ -60,7 +82,7 @@ if(!function_exists('FormatarNome'))
      * @Ex-Param: KennEDY RODRIGUEs DE souza
      * @EX-Retorno: Kennedy Rodrigues de Souza
      */
-    function FormatarNome($nomeCompleto)
+    function ajustarNome($nomeCompleto)
     {
         $nome = explode(' ', trim($nomeCompleto));
 
@@ -84,7 +106,7 @@ if(!function_exists('primeiroNome'))
 {
     /**
      * Essa Funcção recebe o nome completo de uma pessoa,
-     * e retorna o sei primeiro nome formatado com as letras iniciais em
+     * e retorna o seu primeiro nome formatado com as letras iniciais em
      * caixa alta.
      *
      * @param $nomeDaPessoa

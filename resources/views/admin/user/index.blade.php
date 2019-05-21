@@ -34,7 +34,7 @@ a.btn.btn-app.btn-actions.btn-actions-delete {
 @endsection
 
 @section('page-breadcrumb')
-    Usuários
+    <li><i class="fa fa-users"></i> Usuários
 @endsection
 
 @section('page-content')
@@ -53,6 +53,7 @@ a.btn.btn-app.btn-actions.btn-actions-delete {
                         <th>Ativo</th>
                         <th>Nome</th>
                         <th>Email</th>
+                        <th>Telefone</th>
                         <th>Permissões</th>
                         <th>Actions</th>
                     </tr>
@@ -61,8 +62,9 @@ a.btn.btn-app.btn-actions.btn-actions-delete {
                     @foreach($users as $user)
                     <tr>
                         <td>SIM</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
+                        <td title="{{$user->name}}">{{Str::limit($user->name, 20, '...')}}</td>
+                        <td title="{{$user->email}}">{{substr($user->email, 0, 4)}}...@php $aa = explode('@', $user->email, 2); echo '@'.$aa[1];@endphp</td>
+                        <td>{{$user->phone}}</td>
                         <td>
                             @foreach($user->getRoleNames() as $role)
                             <small class="label bg-green">{{$role}}</small>
@@ -72,12 +74,16 @@ a.btn.btn-app.btn-actions.btn-actions-delete {
                             <a href="{{Route('admin.user.show', ['id' => $user->id])}}" class="btn btn-app btn-actions btn-actions-view" title="Visualizar">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a class="btn btn-app btn-actions btn-actions-edit" title="Editar">
+                            <a href="{{Route('admin.user.edit', ['id' => $user->id])}}" class="btn btn-app btn-actions btn-actions-edit" title="Editar">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="btn btn-app btn-actions btn-actions-delete" title="Apagar">
+                            <a href="" class="btn btn-app btn-actions btn-actions-delete" title="Excluir" onclick="event.preventDefault();
+                                document.getElementById('delete-f{{$user->id}}rm').submit();">
                                 <i class="fa fa-trash"></i>
                             </a>
+                            <form id="delete-f{{$user->id}}rm" action="{{ route('admin.user.delete', ['id'=>$user->id]) }}" method="POST" style="display: none;">
+                                @csrf {{ method_field('delete') }}
+                            </form>
                         </td>
                     </tr>
                     @endforeach

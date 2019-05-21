@@ -17,12 +17,12 @@ return [
     'logo4' => 'NEDY', // Segundo Nome
 
     'titulo' => env('APP_NAME', 'APP_NAME NOT DEFINED'),
-    'member' => 'Member since',
+    'member' => 'Cadastrado',
     'logout' => 'Sair',
     'profile' => 'Perfil',
 
     'menu' => 'MENU DE NAVEGAÇÃO',
-    'alterar-senha' => 'Senha',
+    'alterar-senha' => 'Alterar Minha Senha',
 
     'fechar' => 'Fechar',
     'salvar' => 'Salvar',

@@ -40,7 +40,7 @@
             </section>
         </div>
         
-        @include('admin.user.alterar-senha')
+        @include('admin.user.alterar_senha')
 
         <footer class="main-footer">
             <div class="pull-right hidden-xs">

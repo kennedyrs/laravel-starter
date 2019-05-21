@@ -49,8 +49,6 @@ class HomeController extends Controller
             $config_temp[$key] = explode("=", $row, 2);
         }
 
-
-        Session()->flash('success', 'Dashboard carregou');
         return view('admin.dashboard', compact('envs', 'dependencies', 'config_temp'));
     }
 }
